@@ -40,33 +40,33 @@
         <div class="container">
             <h2 class="section-title">Logros <span>Microsoft</span></h2>
             <div class="achievements-grid">
-                <div class="achievement-card">
+                <div class="achievement-card" onclick="openAchievementModal('achievement1')">
                     <div class="achievement-badge">
-                        <i class="fab fa-microsoft"></i>
+                        <i class="fas fa-robot"></i>
                     </div>
-                    <h3>Microsoft Learn Student Ambassador</h3>
-                    <p>Alpha Level Achiever</p>
+                    <h3>GitHub Copilot</h3>
+                    <p>Introduccion a GitHub Copilot</p>
                 </div>
-                <div class="achievement-card">
+                <div class="achievement-card" onclick="openAchievementModal('achievement2')">
                     <div class="achievement-badge">
-                        <i class="fas fa-trophy"></i>
+                        <i class="fas fa-code-branch"></i>
                     </div>
-                    <h3>Azure Developer League</h3>
-                    <p>Season 2 Champion</p>
+                    <h3>Logica de Desicion C#</h3>
+                    <p>if, else, else if</p>
                 </div>
-                <div class="achievement-card">
+                <div class="achievement-card" onclick="openAchievementModal('achievement3')">
                     <div class="achievement-badge">
-                        <i class="fas fa-medal"></i>
+                        <i class="fas fa-table"></i>
                     </div>
-                    <h3>Power Platform Apprentice</h3>
-                    <p>Certified Developer</p>
+                    <h3>Matrices C#</h3>
+                    <p>foreach</p>
                 </div>
-                <div class="achievement-card">
+                <div class="achievement-card" onclick="openAchievementModal('achievement4')">
                     <div class="achievement-badge">
-                        <i class="fas fa-code"></i>
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>.NET Core Specialist</h3>
-                    <p>Advanced Certification</p>
+                    <h3>Informes Interactivos</h3>
+                    <p>GitHub Copilot para Power BI</p>
                 </div>
             </div>
         </div>
@@ -88,6 +88,14 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal para Logros Microsoft -->
+    <div id="achievementModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAchievementModal()">&times;</span>
+            <embed id="achievementEmbed" src="" type="application/pdf" width="100%" height="600px">
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>

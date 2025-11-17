@@ -65,35 +65,9 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
             });
         });
 
-        // Animaciones específicas para certificados
-        gsap.from('.certificate-card', {
-            scrollTrigger: {
-                trigger: '.certificates-grid',
-                start: 'top 80%',
-                end: 'bottom 20%',
-                toggleActions: 'play none none reverse'
-            },
-            y: 50,
-            opacity: 0,
-            stagger: 0.2,
-            duration: 0.8,
-            ease: 'power2.out'
-        });
 
-        // Animaciones para logros Microsoft
-        gsap.from('.achievement-card', {
-            scrollTrigger: {
-                trigger: '.achievements-grid',
-                start: 'top 80%',
-                end: 'bottom 20%',
-                toggleActions: 'play none none reverse'
-            },
-            y: 50,
-            opacity: 0,
-            stagger: 0.2,
-            duration: 0.8,
-            ease: 'power2.out'
-        });
+
+
 
         // Animación del navbar superior
         gsap.to('.top-navbar', {

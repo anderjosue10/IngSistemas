@@ -182,35 +182,9 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
             });
         });
 
-        // Animaciones específicas para certificados
-        gsap.from('.certificate-card', {
-            scrollTrigger: {
-                trigger: '.certificates-grid',
-                start: 'top 80%',
-                end: 'bottom 20%',
-                toggleActions: 'play none none reverse'
-            },
-            y: 50,
-            opacity: 0,
-            stagger: 0.2,
-            duration: 0.8,
-            ease: 'power2.out'
-        });
 
-        // Animaciones para logros Microsoft
-        gsap.from('.achievement-card', {
-            scrollTrigger: {
-                trigger: '.achievements-grid',
-                start: 'top 80%',
-                end: 'bottom 20%',
-                toggleActions: 'play none none reverse'
-            },
-            y: 50,
-            opacity: 0,
-            stagger: 0.2,
-            duration: 0.8,
-            ease: 'power2.out'
-        });
+
+
 
         // Animación del navbar superior
         gsap.to('.top-navbar', {
@@ -291,6 +265,34 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     });
 } else {
     console.warn('GSAP no está cargado correctamente');
+}
+
+// Función para abrir el modal de certificados
+function openModal(certId) {
+    const modal = document.getElementById('certificateModal');
+    const modalImage = document.getElementById('modalImage');
+
+    if (certId === 'cert1') {
+        modalImage.src = 'images/Certificado_AplicacionMovil.png'; // Ajusta la extensión si es necesario
+    } else if (certId === 'cert2') {
+        modalImage.src = 'images/Certificado_AplicacionMovil.png'; // Usa la misma imagen por ahora, puedes cambiarla después
+    }
+
+    modal.style.display = 'block';
+}
+
+// Función para cerrar el modal
+function closeModal() {
+    const modal = document.getElementById('certificateModal');
+    modal.style.display = 'none';
+}
+
+// Cerrar modal al hacer clic fuera de él
+window.onclick = function(event) {
+    const modal = document.getElementById('certificateModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
 }
 
 // Inicialización

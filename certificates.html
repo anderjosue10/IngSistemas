@@ -36,52 +36,52 @@
     </nav>
 
     <!-- Sección Certificados -->
-    <section id="certificates" class="certificates">
+    <section id="certificates" class="certificates-section">
         <div class="container">
             <h2 class="section-title">Mis <span>Certificados</span></h2>
             <div class="certificates-grid">
-                <div class="certificate-card">
+                <div class="certificate-card" onclick="openModal('cert1')">
                     <div class="certificate-icon">
-                        <i class="fab fa-google"></i>
+                        <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Google Cloud Certified</h3>
-                    <p>Associate Cloud Engineer</p>
+                    <h3>Certificado de Aplicación Móvil</h3>
+                    <p>Maui.Net, API Rest, MongoDB</p>
                     <span class="certificate-date">2024</span>
                 </div>
-                <div class="certificate-card">
+                <div class="certificate-card" onclick="openModal('cert2')">
                     <div class="certificate-icon">
-                        <i class="fab fa-aws"></i>
+                        <i class="fas fa-globe"></i>
                     </div>
-                    <h3>AWS Certified</h3>
-                    <p>Solutions Architect</p>
+                    <h3>Certificado JUDC</h3>
+                    <p>Investigacion Cientifica Sistema Web</p>
                     <span class="certificate-date">2024</span>
                 </div>
-                <div class="certificate-card">
+                <div class="certificate-card" onclick="openModal('cert3')">
                     <div class="certificate-icon">
-                        <i class="fab fa-microsoft"></i>
+                        <i class="fas fa-file-code"></i>
                     </div>
-                    <h3>Microsoft Azure</h3>
-                    <p>AZ-900 Fundamentals</p>
-                    <span class="certificate-date">2024</span>
-                </div>
-                <div class="certificate-card">
-                    <div class="certificate-icon">
-                        <i class="fab fa-react"></i>
-                    </div>
-                    <h3>React Developer</h3>
-                    <p>Advanced Concepts</p>
-                    <span class="certificate-date">2024</span>
+                    <h3>Carta de Sistema Web Instalado</h3>
+                    <p>React Native, SQL Server, API Net Core</p>
+                    <span class="certificate-date">2025</span>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modal para Certificados -->
+    <div id="certificateModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <embed id="modalImage" src="" type="application/pdf" width="100%" height="600px" alt="Certificado">
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-text">
-                    <p>&copy; 2024 Tu Nombre. Todos los derechos reservados.</p>
+                    <p>&copy; 2024 ANDERSON JOSUE GUTIERREZ RIVERA. Todos los derechos reservados.</p>
                 </div>
                 <div class="footer-social">
                     <a href="https://wa.me/1234567890" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
