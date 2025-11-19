@@ -2232,7 +2232,6 @@ section {
     z-index: 1000;
     overflow: hidden;
     animation: modal-appear 0.3s ease-out;
-    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 @keyframes modal-appear {
@@ -2284,9 +2283,7 @@ section {
 
 .chat-body p {
     margin: 0;
-    padding: 10px 15px;
     border-radius: 18px;
-    max-width: 80%;
     word-wrap: break-word;
     line-height: 1.4;
 }
