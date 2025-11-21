@@ -79,7 +79,28 @@ body {
 
 
 
+/* Cursor personalizado */
+.cursor {
+    width: 8px;
+    height: 8px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 999;
+    transition: transform 0.1s;
+}
 
+.cursor-follower {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 998;
+    transition: all 0.2s ease-out;
+}
 
 /* Navegación Superior Derecha */
 .top-right-nav {
@@ -2512,7 +2533,7 @@ section {
     color: #020617;
     font-weight: 700;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    animation: gradientShift 8s ease infinite, border-pulse-security 3s ease-in-out infinite;
+    animation: border-pulse-security 3s ease-in-out infinite;
     border: 2px solid rgba(16, 185, 129, 0.5);
 }
 
@@ -2855,7 +2876,7 @@ section {
     color: #020617;
     font-weight: 700;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    animation: gradientShift 8s ease infinite, border-pulse-deployment 3s ease-in-out infinite;
+    animation: border-pulse-deployment 3s ease-in-out infinite;
     border: 2px solid rgba(139, 92, 246, 0.5);
 }
 
@@ -3018,7 +3039,7 @@ section {
     color: #020617;
     font-weight: 700;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    animation: gradientShift 8s ease infinite, border-pulse-projects 3s ease-in-out infinite;
+    animation: border-pulse-projects 3s ease-in-out infinite;
     border: 2px solid rgba(245, 158, 11, 0.5);
 }
 
@@ -3364,7 +3385,7 @@ section {
             color: #020617;
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            animation: gradientShift 8s ease infinite, border-pulse-ai 3s ease-in-out infinite;
+            animation: border-pulse-ai 3s ease-in-out infinite;
             border: 2px solid rgba(147, 51, 234, 0.5);
         }
 
