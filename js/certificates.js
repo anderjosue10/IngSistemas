@@ -9,7 +9,9 @@ function openModal(certId) {
     const certificatePaths = {
         'cert1': 'images/Certificado_AplicacionMovil.pdf',
         'cert2': 'images/CertificadoJUDC CURMATAGALPA-110.pdf',
-        'cert3': 'images/CartaFirmadaNegocio.pdf'
+        'cert3': 'images/CartaFirmadaNegocio.pdf',
+        'cert4': 'images/Certificado_Microsoft.pdf',
+        'cert5': 'images/generated.pdf'
     };
 
     if (certificatePaths[certId]) {
