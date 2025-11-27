@@ -10,7 +10,7 @@ function openModal(certId) {
         'cert1': 'images/Certificado_AplicacionMovil.pdf',
         'cert2': 'images/CertificadoJUDC CURMATAGALPA-110.pdf',
         'cert3': 'images/CartaFirmadaNegocio.pdf',
-        'cert4': 'images/Certificado_Microsoft.pdf',
+        'cert4': 'images/certificadonuevo.pdf',
         'cert5': 'images/generated.pdf'
     };
 
