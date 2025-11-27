@@ -5,6 +5,49 @@
     box-sizing: border-box;
 }
 
+/* Utility: screen-reader-only */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Skip link (keyboard navigation) */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: -1;
+}
+.skip-link:focus {
+    left: 20px;
+    top: 20px;
+    width: auto;
+    height: auto;
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.06);
+    color: var(--text-primary);
+    border-radius: 6px;
+    z-index: 2000;
+    outline: 3px solid rgba(99,102,241,0.28);
+}
+
+/* Focus styles for accessibility */
+button:focus, a:focus, .nav-btn:focus, .social-btn:focus, .cv-download-button:focus, input:focus {
+        outline: 3px solid rgba(99,102,241,0.32);
+        outline-offset: 2px;
+        box-shadow: 0 0 0 6px rgba(99,102,241,0.06);
+}
+
 :root {
     --primary-color: #6366f1;
     --primary-dark: #4f46e5;
@@ -152,6 +195,79 @@ body {
 
 .top-right-nav .nav-btn span {
     font-size: 12px;
+}
+
+/* Botón de descarga del CV fuera del menú (verde agradable) */
+.cv-download-wrapper {
+    position: fixed;
+    top: 80px; /* sitúa el botón justo debajo de la nav fija */
+    right: 20px;
+    z-index: 1001;
+}
+
+.cv-download-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #16a34a, #059669);
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(5, 150, 105, 0.18), 0 6px 12px rgba(0,0,0,0.15);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+.cv-download-button i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 10px;
+}
+
+.cv-download-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 22px 48px rgba(5, 150, 105, 0.25), 0 10px 20px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 640px) {
+    /* En móviles mantenemos el botón justo debajo del menú fijo y lo hacemos más compacto */
+    .cv-download-wrapper {
+        position: fixed;
+        /* 20px top de nav + ~44px altura del nav + 8px separación ≈ 72px */
+        top: 72px;
+        right: 12px;
+        bottom: auto;
+        z-index: 1001;
+    }
+
+    .cv-download-button {
+        padding: 6px 10px;
+        gap: 8px;
+        font-size: 12px;
+        border-radius: 10px;
+    }
+
+    .cv-download-button i {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+
+    /* Ajustes para que no se solape con elementos cuando la pantalla es muy estrecha */
+    @media (max-width: 420px) {
+        .cv-download-wrapper { right: 8px; top: 68px; }
+        .cv-download-button { padding: 5px 8px; font-size: 11px; }
+        .cv-download-button i { width: 24px; height: 24px; font-size: 13px; }
+    }
 }
 
 /* Hero Centrado */
@@ -398,6 +514,58 @@ body {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
+/* Footer / header social buttons styling (consistent, modern) */
+.footer-social {
+        display: flex;
+        gap: 0.6rem;
+        align-items: center;
+}
+.footer-social a {
+        display: inline-flex;
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        text-decoration: none;
+        transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+        border: 1px solid rgba(255,255,255,0.06);
+        font-size: 16px;
+}
+.footer-social a i { pointer-events: none; }
+.footer-social a:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 18px 40px rgba(0,0,0,0.3); }
+
+/* Brand accents for footer buttons (darker toned gradients) */
+.footer-social .whatsapp-btn { background: linear-gradient(180deg, #25D366, #11b051); }
+.footer-social .instagram-btn { background: linear-gradient(135deg,#E4405F,#F77737); }
+.footer-social .facebook-btn { background: linear-gradient(180deg,#1877F2,#0f62d9); }
+.footer-social .linkedin-btn { background: linear-gradient(180deg,#0A66C2,#064e9a); }
+
+/* Tooltip on hover for larger screens */
+@media (min-width: 640px) {
+    .footer-social a[data-label]:hover::after {
+        content: attr(data-label);
+        position: absolute;
+        bottom: calc(100% + 8px);
+        white-space: nowrap;
+        padding: 6px 10px;
+        font-size: 12px;
+        border-radius: 6px;
+        background: rgba(15,23,42,0.95);
+        color: var(--text-primary);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        transform-origin: bottom center;
+        z-index: 2500;
+    }
+}
+
+/* Make social buttons slightly smaller on very small screens */
+@media (max-width:420px){
+    .footer-social a{ width:38px;height:38px;font-size:14px }
+}
+
 /* Scroll Indicator Centrado */
 .scroll-indicator-centered {
     position: absolute;
@@ -484,6 +652,32 @@ section {
     align-items: center;
     opacity: 0;
     transition: opacity 0.3s;
+}
+
+/* Icon style used instead of images for project cards */
+.project-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 72px;
+    color: white;
+    transition: transform 0.3s, filter 0.25s;
+    background: linear-gradient(135deg, rgba(99,102,241,0.9), rgba(244,114,182,0.9));
+}
+.project-icon i { pointer-events: none; }
+.project-card:hover .project-icon { transform: scale(1.05); filter: drop-shadow(0 10px 30px rgba(0,0,0,0.35)); }
+
+/* Per-project color variants */
+.project-icon-lab { background: linear-gradient(135deg,#0ea5b7,#22c1c3); }
+.project-icon-ferreteria { background: linear-gradient(135deg,#f97316,#f59e0b); }
+.project-icon-chatbot { background: linear-gradient(135deg,#a78bfa,#60a5fa); }
+.project-icon-smarnet { background: linear-gradient(135deg,#06b6d4,#0ea5a0); }
+
+/* Make the icon responsive */
+@media (max-width: 640px){
+    .project-icon{font-size:48px}
 }
 
 .project-card:hover .project-overlay {
@@ -2260,8 +2454,8 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    user-select: none;
     -webkit-user-select: none;
+    user-select: none;
     touch-action: none;
 }
 

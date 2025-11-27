@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect x="40" y="40" width="1120" height="620" rx="18" fill="#1e293b" stroke="#2b3444" stroke-width="2"/>
+  <g fill="#9ae6b4">
+    <rect x="120" y="120" width="420" height="220" rx="14" />
+    <rect x="120" y="360" width="420" height="160" rx="10" />
+    <rect x="660" y="120" width="420" height="400" rx="14" />
+  </g>
+  <text x="80" y="100" fill="#9ae6b4" font-family="Inter, sans-serif" font-size="34" font-weight="700">Laboratorio Clínico — Sangre de Cristo</text>
+  <text x="130" y="200" fill="#e6f9ef" font-family="Inter, sans-serif" font-size="20">App móvil y panel web para gestión de pacientes, exámenes y facturación.</text>
+  <g transform="translate(680,210)">
+    <rect width="260" height="80" rx="10" fill="#0ea5b7"/>
+    <text x="130" y="50" text-anchor="middle" fill="#021226" font-size="18" font-family="Inter, sans-serif" font-weight="700">Ver detalle</text>
+  </g>
+</svg>

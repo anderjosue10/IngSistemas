@@ -313,10 +313,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const facebookBtn = document.querySelector('.facebook-btn');
     const linkedinBtn = document.querySelector('.linkedin-btn');
 
-    if (whatsappBtn) whatsappBtn.href = 'https://wa.me/tunumerodetelefono';
-    if (instagramBtn) instagramBtn.href = 'https://instagram.com/tuusuario';
-    if (facebookBtn) facebookBtn.href = 'https://facebook.com/tuusuario';
-    if (linkedinBtn) linkedinBtn.href = 'https://linkedin.com/in/tuusuario';
+    // Fall back to the real links present in the footer (update to your real profiles)
+    if (whatsappBtn) whatsappBtn.href = 'https://wa.me/82320500';
+    if (instagramBtn) instagramBtn.href = 'https://instagram.com/a_j_g_r_17';
+    if (facebookBtn) facebookBtn.href = 'https://facebook.com/Jos%C3%A9%20Guti%C3%A9rrez%20Rivera';
+    if (linkedinBtn) linkedinBtn.href = 'https://www.linkedin.com/in/anderson-josué-gutiérrez-rivera-887687370';
 
 
 });

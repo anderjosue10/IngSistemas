@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="100%" height="100%" fill="#041428"/>
+  <rect x="48" y="48" width="1104" height="604" rx="14" fill="#102030"/>
+  <g fill="#ffd54f">
+    <rect x="120" y="140" width="320" height="280" rx="12" />
+    <rect x="470" y="140" width="520" height="280" rx="12" />
+  </g>
+  <text x="80" y="96" fill="#ffd54f" font-family="Inter, sans-serif" font-size="34" font-weight="700">Ferretería Hodgson — Gestión de inventarios</text>
+  <text x="130" y="220" fill="#fff8e6" font-family="Inter, sans-serif" font-size="20">Sistema web/desktop para inventario por bodega, facturación y estadísticas.</text>
+  <g transform="translate(480,420)">
+    <rect width="300" height="80" rx="12" fill="#f97316"/>
+    <text x="150" y="48" text-anchor="middle" fill="#0f172a" font-size="18" font-family="Inter, sans-serif" font-weight="700">Ver demo</text>
+  </g>
+</svg>

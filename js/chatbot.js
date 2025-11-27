@@ -22,12 +22,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Estado del modal
     chatModal.style.display = "none";
 
-    // Función para abrir/cerrar el chat
+    // Función para abrir/cerrar el chat (con ARIA)
     function toggleChat() {
-        if (chatModal.style.display === "block") {
-            chatModal.style.display = "none";
+        const isOpen = chatModal.style.display === 'block';
+
+        if (isOpen) {
+            chatModal.style.display = 'none';
+            toggleBtn.setAttribute('aria-expanded', 'false');
+            chatModal.setAttribute('aria-hidden', 'true');
         } else {
-            chatModal.style.display = "block";
+            chatModal.style.display = 'block';
+            toggleBtn.setAttribute('aria-expanded', 'true');
+            chatModal.setAttribute('aria-hidden', 'false');
             // Enfocar el input cuando se abre
             setTimeout(() => {
                 chatInput.focus();
@@ -84,16 +90,23 @@ document.addEventListener('DOMContentLoaded', function() {
     
     closeBtn.addEventListener('click', function(e) {
         e.stopPropagation();
-        chatModal.style.display = "none";
+        chatModal.style.display = 'none';
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        chatModal.setAttribute('aria-hidden', 'true');
+        // Return focus to the toggle button for keyboard users
+        toggleBtn.focus();
     });
 
     // Cerrar modal al hacer clic fuera - MEJORADO
     document.addEventListener("click", function(e) {
         // Si el modal está abierto y el clic fue fuera del modal Y fuera del botón
-        if (chatModal.style.display === "block" && 
+        if (chatModal.style.display === 'block' && 
             !chatModal.contains(e.target) && 
             !toggleBtn.contains(e.target)) {
-            chatModal.style.display = "none";
+            chatModal.style.display = 'none';
+            toggleBtn.setAttribute('aria-expanded', 'false');
+            chatModal.setAttribute('aria-hidden', 'true');
+            toggleBtn.focus();
         }
     });
 
@@ -317,4 +330,16 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
         }
     }, { passive: false });
+
+    // Cerrar con tecla Escape para accesibilidad
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' || e.key === 'Esc') {
+            if (chatModal.style.display === 'block') {
+                chatModal.style.display = 'none';
+                toggleBtn.setAttribute('aria-expanded', 'false');
+                chatModal.setAttribute('aria-hidden', 'true');
+                toggleBtn.focus();
+            }
+        }
+    });
 });

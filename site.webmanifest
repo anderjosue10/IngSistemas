@@ -1,0 +1,11 @@
+{
+  "name": "Anderson — Portafolio",
+  "short_name": "Anderson",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#6366f1",
+  "icons": [
+    { "src": "/assets/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

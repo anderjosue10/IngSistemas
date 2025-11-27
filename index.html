@@ -4,7 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mi Portafolio | Desarrollador Full Stack</title>
+    <!-- SEO + Open Graph -->
+    <meta name="description" content="Anderson Josué — Desarrollador Full‑Stack: proyectos reales, asistentes IA, seguridad y soluciones web/móvil/desktop.">
+    <link rel="canonical" href="https://tu-dominio.com/" />
+    <meta property="og:title" content="Anderson — Desarrollador Full Stack" />
+    <meta property="og:description" content="Portafolio profesional con proyectos, diplomas, asistentes IA y servicios de desarrollo Full‑Stack." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tu-dominio.com/" />
+    <meta property="og:image" content="/images/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Anderson — Desarrollador Full Stack" />
+    <meta name="twitter:description" content="Portafolio profesional con proyectos, diplomas, asistentes IA y servicios de desarrollo." />
     <link rel="stylesheet" href="css/style.css" />
+    <!-- Performance hints -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+    <!-- Favicon & PWA manifest -->
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
@@ -13,21 +32,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   </head>
   <body>
-    <button id="toggleChat" class="chat-btn">
-      <i class="fas fa-robot"></i>
+    <a class="skip-link" href="#home">Saltar al contenido</a>
+    <button id="toggleChat" class="chat-btn" aria-controls="chatModal" aria-expanded="false" aria-label="Abrir chat">
+      <i class="fas fa-robot" aria-hidden="true"></i>
+      <span class="sr-only">Abrir chat</span>
     </button>
 
-    <div id="chatModal" class="chat-modal">
+    <div id="chatModal" class="chat-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="chatTitle">
       <div class="chat-header">
-        <span>Asistente IA</span>
-        <span id="closeChat" class="close">&times;</span>
+        <h2 id="chatTitle">Asistente IA</h2>
+        <button id="closeChat" class="close" aria-label="Cerrar chat">&times;</button>
       </div>
       <div class="chat-body">
         <p>Pregunta lo que quieras!</p>
       </div>
       <div class="chat-footer">
-        <input type="text" placeholder="Escribe un mensaje.." />
-        <button>Enviar</button>
+        <input type="text" placeholder="Escribe un mensaje.." aria-label="Escribe un mensaje" />
+        <button aria-label="Enviar mensaje">Enviar</button>
       </div>
     </div>
 
@@ -39,22 +60,30 @@
     <div id="particles-js"></div>
 
     <!-- Navegación Superior Derecha -->
-    <nav class="top-right-nav">
+    <nav class="top-right-nav" role="navigation" aria-label="Enlaces rápidos">
       <div class="nav-buttons">
-        <button class="nav-btn" id="projects-btn">
+        <button class="nav-btn" id="projects-btn" aria-label="Ir a mis proyectos">
           <i class="fas fa-briefcase"></i>
           <span>Mis Proyectos</span>
         </button>
-        <button class="nav-btn" id="certificates-btn">
+        <button class="nav-btn" id="certificates-btn" aria-label="Ver certificados">
           <i class="fas fa-certificate"></i>
           <span>Certificados</span>
         </button>
-        <button class="nav-btn" id="microsoft-btn">
+        <button class="nav-btn" id="microsoft-btn" aria-label="Logros Microsoft">
           <i class="fab fa-microsoft"></i>
           <span>Logros Microsoft</span>
         </button>
       </div>
     </nav>
+
+        <!-- Botón de descarga del CV (fuera del menú) -->
+        <div class="cv-download-wrapper">
+          <a class="cv-download-button" href="images/AndersonCV.pdf" download="AndersonCV.pdf" title="Descargar CV - Anderson Josué Gutiérrez Rivera" aria-label="Descargar CV de Anderson Josué Gutiérrez Rivera">
+            <i class="fas fa-file-arrow-down"></i>
+            <span>Descargar CV</span>
+          </a>
+        </div>
 
     <!-- Sección Hero Centrada -->
     <section id="home" class="hero-centered">
@@ -72,6 +101,8 @@
           <div class="central-image">
             <img
               src="images/ChatGPT Image 16 nov 2025, 12_26_43 p.m..png"
+              srcset="images/ChatGPT Image 16 nov 2025, 12_26_43 p.m..png 600w"
+              sizes="(max-width: 640px) 180px, 300px"
               alt="Anderson Josué Gutiérrez Rivera"
               loading="lazy"
               decoding="async"
@@ -610,10 +641,10 @@
             </p>
           </div>
           <div class="footer-social">
-                    <a href="https://wa.me/82320500" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://instagram.com/a_j_g_r_17" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-                    <a href="https://facebook.com/Josué Gutiérrez Rivera" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://linkedin.com/anderson-josué-gutiérrez-rivera-887687370" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a></a>
+                    <a class="whatsapp-btn" data-label="WhatsApp" href="https://wa.me/82320500" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i><span class="sr-only">WhatsApp</span></a>
+                    <a class="instagram-btn" data-label="Instagram" href="https://instagram.com/a_j_g_r_17" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span></a>
+                    <a class="facebook-btn" data-label="Facebook" href="https://facebook.com/Jos%C3%A9%20Guti%C3%A9rrez%20Rivera" target="_blank" rel="noopener noreferrer" aria-label="Facebook - Josué Gutiérrez Rivera"><i class="fab fa-facebook-f" aria-hidden="true"></i><span class="sr-only">Facebook</span></a>
+                    <a class="linkedin-btn" data-label="LinkedIn" href="https://www.linkedin.com/in/anderson-josué-gutiérrez-rivera-887687370" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn - Anderson Josué Gutiérrez Rivera"><i class="fab fa-linkedin-in" aria-hidden="true"></i><span class="sr-only">LinkedIn</span></a>
           </div>
         </div>
       </div>
