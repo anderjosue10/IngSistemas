@@ -145,6 +145,7 @@ body {
     transition: all 0.2s ease-out;
 }
 
+
 /* Navegación Superior Derecha */
 .top-right-nav {
     position: fixed;
@@ -204,6 +205,7 @@ body {
     right: 20px;
     z-index: 1001;
 }
+
 
 .cv-download-button {
     display: inline-flex;
@@ -1260,6 +1262,7 @@ section {
 
 .tool-logo {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -1279,6 +1282,14 @@ section {
 .tool-logo:hover {
     background: rgba(99, 102, 241, 0.2);
     transform: scale(1.05);
+}
+.tool-logo .span {
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 1px;
 }
 
 .developer-image {
