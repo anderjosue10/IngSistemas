@@ -7,9 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const chatInput = document.querySelector(".chat-footer input");
     const chatSendBtn = document.querySelector(".chat-footer button");
 
-    // URL de tu API desplegada en Vercel
-    const API_URL = "https://root-folder-liart.vercel.app/api/gemini"; 
-
     // Variables para el arrastre
     let isDragging = false;
     let dragStartX = 0;
@@ -220,53 +217,72 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    const respuestas = [
+  {
+    keys: ["hola", "buenas"],
+    reply: "Hola 👋 Soy el asistente del portafolio de Anderson Josué Gutiérrez Rivera."
+  },
+  {
+    keys: ["quien eres", "anderson"],
+    reply: "Anderson Josué Gutiérrez Rivera, estudiante de Ingeniería en Sistemas (5° año), desarrollador full-stack y especialista en CiberSeguridad."
+  },
+    {
+    keys: ["dime algo sobre Anderson", "anderson"],
+    reply: "Anderson ha desarrollado aplicaciones móviles y web, y tiene experiencia en ciberseguridad, incluyendo pruebas de penetración y auditorías de seguridad,así como en la implementación de medidas de seguridad para proteger sistemas y datos."
+  },
+      {
+    keys: ["Quiero saber mas sobre Anderson", "anderson"],
+    reply: "Anderson ofrece sus servicios como freelancer en desarrollo de software y ciberseguridad. Puedes contactarlo para proyectos personalizados o consultas, las consultas seran gratis."
+  },
+        {
+    keys: ["que proyectos ha hecho?", "anderson"],
+    reply: "Anderson ha hecho proyectos como SMARTNET, Laboratorio Sangre de Cristo y Ferretería Hodgson Luna todos quedaron implementados para la funcionalidad de las empresas unos localmente y otros con un despliegue."
+  },
+  {
+    keys: ["contacto", "correo", "email"],
+    reply: "📧 anderguti525@gmail.com"
+  },
+  {
+    keys: ["whatsapp", "telefono", "numero"],
+    reply: "📞 WhatsApp Nicaragua: +505 8232 0500"
+  },
+  {
+    keys: ["linkedin"],
+    reply: "🔗 https://linkedin.com/in/andersonjosuegutierrezrivera"
+  },
+  {
+    keys: ["habilidades", "tecnologias"],
+    reply: ".NET MAUI, Laravel, React Native, SQL Server, MySQL, MongoDB, APIs REST y JWT."
+  },
+  {
+    keys: ["experiencia", "proyectos"],
+    reply: "Proyectos destacados: SMARTNET, MisterCoffiee, Laboratorio Sangre de Cristo y Ferretería Hodgson Luna."
+  }
+];
+
     // ========== FUNCIONALIDAD DEL CHAT ==========
 
     // Función para enviar mensajes
-    async function sendMessage() {
-        const message = chatInput.value.trim();
-        
-        if (!message) return;
+function sendMessage() {
+  const message = chatInput.value.trim().toLowerCase();
+  if (!message) return;
 
-        // Agregar mensaje del usuario al chat
-        addMessageToChat("user", message);
-        chatInput.value = "";
+  addMessageToChat("user", message);
+  chatInput.value = "";
 
-        // Mostrar indicador de typing
-        showTypingIndicator();
+  let respuesta = "Puedo ayudarte con información sobre Anderson, su experiencia, contacto o portafolio.";
 
-        try {
-            const response = await fetch(API_URL, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    prompt: message
-                })
-            });
-
-            if (!response.ok) {
-                throw new Error(`Error: ${response.status}`);
-            }
-
-            const data = await response.json();
-            
-            // Remover indicador de typing
-            removeTypingIndicator();
-            
-            // Extraer la respuesta del chatbot
-            const botResponse = extractBotResponse(data);
-            
-            // Agregar respuesta del bot al chat
-            addMessageToChat("bot", botResponse);
-
-        } catch (error) {
-            console.error("Error:", error);
-            removeTypingIndicator();
-            addMessageToChat("bot", "Lo siento, hubo un error al procesar tu mensaje. Por favor, intenta nuevamente.");
-        }
+  for (const item of respuestas) {
+    if (item.keys.some(k => message.includes(k))) {
+      respuesta = item.reply;
+      break;
     }
+  }
+
+  setTimeout(() => {
+    addMessageToChat("bot", respuesta);
+  }, 600);
+}
 
     // Función para extraer la respuesta del bot
     function extractBotResponse(data) {
