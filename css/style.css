@@ -258,7 +258,7 @@ body {
 }
 .cv-desc {
     font-size: 13px;
-    color: rgba(203,213,225,0.85); /* un poco más opaco que text-secondary */
+    color: rgba(203,213,225,0.85); /* Este es el color en móvil */
     margin: 8px 0 10px;
     line-height: 1.35;
 }
@@ -289,44 +289,20 @@ body {
     .cv-desc { font-size:12px; }
 }
 
-/* Desktop: mostrar en fila (icono | info) y alinear texto a la izquierda */
+/* En el media query para desktop (min-width: 900px) */
 @media (min-width: 900px) {
-    .cv-panel-inner {
-        flex-direction: row;
-        align-items: center;
-        gap: 18px;
-        max-width: 800px;
-    }
-
-    .cv-icon-button {
-        width: 72px;
-        height: 72px;
-        font-size: 22px;
-        border-radius: 14px;
-    }
-
-    .cv-info { text-align: left; }
-    .cv-name { font-size: 1.6rem; }
     .cv-desc {
-        font-size: 1.1rem; /* más grande en PC */
+        font-size: 1.1rem;
         margin: 6px 0 0;
         line-height: 1.6;
         font-weight: 600;
         letter-spacing: 0.3px;
-        /* que ocupe todo el ancho del panel (igual que las cards) */
         width: 100%;
         max-width: 100%;
-        text-align: center; /* centrar todo el párrafo en PC */
-        /* degradado similar al título, pero más opaco para que el título siga resaltando */
-        background: linear-gradient(135deg, rgba(99,102,241,0.85), rgba(244,114,182,0.7), rgba(6,182,212,0.7));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        /* fallback color para navegadores que no soporten background-clip */
-        color: rgba(203,213,225,0.95);
-        /* sutil sombra para dar profundidad */
-        text-shadow: 0 1px 0 rgba(0,0,0,0.12);
+        text-align: center;
+        color: rgba(203,213,225,0.85);
     }
+}
 
     .cv-actions { justify-content: center; margin-top: 8px; }
     .cv-actions a { padding: 8px 14px; }
@@ -337,7 +313,7 @@ body {
 
     .cv-download-solid { background: linear-gradient(135deg, var(--primary-dark), var(--primary-color)); color: var(--bg-primary); }
     .cv-download-solid:hover { filter: brightness(1.05); }
-}
+
 
 /* Igualar altura de project-cards y centrar en móvil */
 .projects-grid { grid-auto-rows: 1fr; }
@@ -1159,17 +1135,7 @@ section {
     z-index: -1;
 }
 
-/* Animaciones GSAP */
-.reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease;
-}
 
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 /* Efectos de gradiente animado */
 .gradient-text {
@@ -1203,8 +1169,6 @@ section {
 .professional-title {
     text-align: center;
     margin: 30px 0;
-    opacity: 0;
-    animation: fadeInUp 1s ease-out 0.3s forwards;
 }
 
 .title-full-stack {
@@ -1225,8 +1189,6 @@ section {
     justify-content: center;
     gap: 40px;
     margin: 30px 0;
-    opacity: 0;
-    animation: fadeInUp 1s ease-out 0.6s forwards;
 }
 
 .tool-item {
@@ -1253,7 +1215,6 @@ section {
 .tool-item i {
     font-size: 2rem;
     color: #6366f1;
-    animation: pulse 2s infinite;
 }
 
 .tool-item span {
@@ -1267,8 +1228,6 @@ section {
 /* Bloque Profesional */
 .developer-block {
     margin: 40px 0;
-    opacity: 0;
-    animation: fadeInUp 1s ease-out 0.8s forwards;
 }
 
 .developer-content {
@@ -1394,7 +1353,7 @@ section {
     bottom: 30px;
     right: 30px;
     text-align: right;
-    opacity: 0;
+    opacity: 1;
     animation: slideInFromRight 1s ease-out 0.9s forwards;
     z-index: 10;
 }
@@ -1414,88 +1373,6 @@ section {
     font-weight: 500;
 }
 
-/* Animaciones para la descripción */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideInFromLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInFromRight {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes slideInFromBottom {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-}
-
-@keyframes border-pulse {
-    0%, 100% {
-        box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
-    }
-    50% {
-        box-shadow: 0 0 40px rgba(99, 102, 241, 0.6), 0 0 60px rgba(244, 114, 182, 0.4);
-    }
-}
-
-@keyframes border-rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
 
 /* Responsive - Ultra-wide screens */
 @media (max-width: 3840px) {
@@ -3017,7 +2894,6 @@ section {
 .badge-icon {
     font-size: 2.5rem;
     color: white;
-    animation: pulse 2s infinite;
 }
 
 .badge-text {
@@ -3184,8 +3060,6 @@ section {
 /* Bloque Despliegue de Proyectos */
 .deployment-block {
     margin: 40px 0;
-    opacity: 0;
-    animation: fadeInUp 1s ease-out 1.2s forwards;
 }
 
 .deployment-content {
@@ -3347,8 +3221,6 @@ section {
 /* Bloque Proyectos Destacados */
 .projects-showcase-block {
     margin: 40px 0;
-    opacity: 0;
-    animation: fadeInUp 1s ease-out 1.4s forwards;
 }
 
 .projects-content {
@@ -3671,8 +3543,6 @@ section {
         /* Estilos para el bloque de Modelos de IA */
         .ai-models-block {
             margin: 40px 0;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 1.6s forwards;
         }
 
         .ai-models-content {
@@ -3958,9 +3828,15 @@ section {
         /* Sección de Contacto */
 .contact-section {
     padding: 80px 20px;
-    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-    border-top: 1px solid rgba(99, 102, 241, 0.2);
-    border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+    background: transparent !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    position: relative;
+    z-index: 2;
+    /* Eliminar animación de aparición */
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
 }
 
 .contact-content {
@@ -3993,13 +3869,15 @@ section {
     margin-bottom: 40px;
 }
 
+/* Quitar el fondo de las opciones de contacto */
 .contact-option {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03) !important; /* Fondo muy sutil */
+    border: 1px solid rgba(255, 255, 255, 0.08) !important; /* Borde sutil */
     border-radius: 15px;
     padding: 30px;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .contact-option:hover {
@@ -4122,5 +4000,84 @@ section {
     
     .contact-option {
         padding: 15px;
+    }
+}
+    /* ESTANDARIZAR EL ANCHO DE TODOS LOS BLOQUES */
+.developer-block,
+.projects-showcase-block,
+.security-block,
+.deployment-block,
+.ai-models-block {
+    max-width: 1200px !important;
+    margin: 40px auto !important;
+    width: 90% !important;
+}
+
+/* Asegurar que todos los contenedores internos sean del mismo ancho */
+.developer-content,
+.projects-content,
+.security-content,
+.deployment-content,
+.ai-models-content {
+    max-width: 1200px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+/* Especificar para el bloque de IA que estaba más ancho */
+.ai-models-block {
+    max-width: 1200px !important;
+}
+
+/* Asegurar que en móvil también se mantenga consistente */
+@media (max-width: 1200px) {
+    .developer-block,
+    .projects-showcase-block,
+    .security-block,
+    .deployment-block,
+    .ai-models-block {
+        width: 95% !important;
+        max-width: 100% !important;
+        padding: 0 20px !important;
+        margin: 40px auto !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .developer-block,
+    .projects-showcase-block,
+    .security-block,
+    .deployment-block,
+    .ai-models-block {
+        width: 100% !important;
+        padding: 0 15px !important;
+        margin: 30px auto !important;
+    }
+    
+    .developer-content,
+    .projects-content,
+    .security-content,
+    .deployment-content,
+    .ai-models-content {
+        padding: 20px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .developer-block,
+    .projects-showcase-block,
+    .security-block,
+    .deployment-block,
+    .ai-models-block {
+        padding: 0 10px !important;
+        margin: 20px auto !important;
+    }
+    
+    .developer-content,
+    .projects-content,
+    .security-content,
+    .deployment-content,
+    .ai-models-content {
+        padding: 15px !important;
     }
 }

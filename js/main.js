@@ -108,17 +108,7 @@ document.querySelectorAll('#projects-btn, #certificates-btn, #microsoft-btn').fo
     });
 });
 
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.top-navbar');
-    if (navbar) {
-        if (window.scrollY > 100) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    }
-});
+
 
 // Loading screen will be handled in DOMContentLoaded
 
