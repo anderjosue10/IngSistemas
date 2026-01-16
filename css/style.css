@@ -52,6 +52,15 @@ button:focus, a:focus, .nav-btn:focus, .social-btn:focus, .cv-download-button:fo
     --primary-color: #6366f1;
     --primary-dark: #4f46e5;
     --secondary-color: #f472b6;
+    /* Tonos más oscuros inspirados en el gradiente del chatbot */
+    /* Tonos más oscuros y distintivos (menos parecido al chatbot) */
+    --primary-darker: #26224f; /* azul índigo muy oscuro */
+    --secondary-darker: #5a2642; /* burdeos oscuro */
+    --chat-darker-gradient: linear-gradient(135deg, var(--primary-darker), var(--secondary-darker));
+    /* Gradiente ligeramente más claro para el botón Descargar CV */
+    --download-start: #3f3a7a; /* un poco más claro que --primary-darker */
+    --download-end: #7a3f57;   /* un poco más claro que --secondary-darker */
+    --download-gradient: linear-gradient(135deg, var(--download-start), var(--download-end));
     --accent-color: #06b6d4;
     --whatsapp: #25D366;
     --instagram: #E4405F;
@@ -268,16 +277,25 @@ body {
 
 /* Botón ver: solo borde */
 .cv-view-btn {
+    /* Fondo transparente, borde y texto más claros para mejor contraste */
     background: transparent;
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
+    /* Usar el mismo tono/gradiente que el botón Descargar CV: fallback a --download-start */
+    border: 2px solid var(--download-start);
+    border-image: var(--download-gradient) 1;
+    /* Texto con gradiente igual al botón Descargar CV (fallback a color sólido) */
+    color: var(--download-start);
+    background: var(--download-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Botón descargar: color sólido */
 .cv-download-solid {
-    background: var(--primary-color);
-    color: var(--bg-primary); /* texto oscuro para contraste y evitar blanco */
-    border: 2px solid rgba(0,0,0,0.06);
+    /* Usar gradiente ligeramente más claro para que no luzca demasiado apagado */
+    background: var(--download-gradient);
+    color: white;
+    border: 2px solid rgba(0,0,0,0.08);
 }
 
 /* Ajustes para móviles: panel más compacto */
@@ -308,11 +326,11 @@ body {
     .cv-actions a { padding: 8px 14px; }
 
     /* Botones: ajuste de colores para combinar con la interfaz y no usar blanco en fondos */
-    .cv-view-btn { color: var(--primary-color); border-color: rgba(99,102,241,0.9); }
-    .cv-view-btn:hover { background: rgba(99,102,241,0.06); }
+    .cv-view-btn { background: transparent; color: var(--download-start); border: 2px solid var(--download-start); border-image: var(--download-gradient) 1; background: var(--download-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .cv-view-btn:hover { background: rgba(99,102,241,0.12); }
 
-    .cv-download-solid { background: linear-gradient(135deg, var(--primary-dark), var(--primary-color)); color: var(--bg-primary); }
-    .cv-download-solid:hover { filter: brightness(1.05); }
+    .cv-download-solid { background: var(--download-gradient); color: white; border: 2px solid rgba(0,0,0,0.08); }
+    .cv-download-solid:hover { filter: brightness(0.98); }
 
 
 /* Igualar altura de project-cards y centrar en móvil */
