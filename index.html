@@ -287,6 +287,10 @@
                     <span>Estadísticas de ventas y utilidades</span>
                   </div>
                 </div>
+                <div class="project-actions">
+                  <a href="#" class="project-btn view-images" title="Ver imágenes">Ver imágenes</a>
+                  <a href="#" class="project-btn view-video" title="Ver video">Ver video</a>
+                </div>
               </div>
 
               <!-- Sistema Laboratorio Clínico -->
@@ -322,6 +326,10 @@
                     <i class="fas fa-check"></i>
                     <span>Resultados Digitales</span>
                   </div>
+                </div>
+                <div class="project-actions">
+                  <a href="#" class="project-btn view-images" title="Ver imágenes">Ver imágenes</a>
+                  <a href="#" class="project-btn view-video" title="Ver video">Ver video</a>
                 </div>
               </div>
             </div>
@@ -713,6 +721,37 @@
         </div>
       </div>
     </footer>
+
+    <!-- Modal para visor de imágenes -->
+    <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="imageModalTitle">
+      <div class="modal-backdrop" aria-hidden="true"></div>
+      <div class="modal-content image-modal-content">
+        <button class="modal-close" aria-label="Cerrar visor de imágenes">&times;</button>
+        <button class="modal-nav modal-prev" aria-label="Imagen anterior">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="modal-image-container">
+          <img id="modalImage" src="" alt="" loading="lazy">
+        </div>
+        <button class="modal-nav modal-next" aria-label="Imagen siguiente">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="modal-counter">
+          <span id="currentImage">1</span> / <span id="totalImages">1</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal para visor de video -->
+    <div id="videoModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="videoModalTitle">
+      <div class="modal-backdrop" aria-hidden="true"></div>
+      <div class="modal-content video-modal-content">
+        <button class="modal-close" aria-label="Cerrar visor de video">&times;</button>
+        <div class="modal-video-container">
+          <iframe id="videoIframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>

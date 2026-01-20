@@ -3281,6 +3281,49 @@ section {
     box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
 }
 
+/* Botones de acciones en tarjetas de proyecto */
+.project-actions {
+    margin-top: 14px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.project-btn {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.project-btn.view-images {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+    color: var(--bg-primary);
+    box-shadow: 0 8px 20px rgba(99,102,241,0.12);
+}
+
+.project-btn.view-video {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid rgba(99,102,241,0.12);
+}
+
+.project-btn:hover {
+    transform: translateY(-4px);
+    opacity: 0.98;
+}
+
+.project-btn.view-images:hover {
+    box-shadow: 0 14px 34px rgba(99,102,241,0.16);
+}
+
+.project-btn.view-video:hover {
+    background: rgba(99,102,241,0.06);
+}
+
 .project-header {
     display: flex;
     justify-content: space-between;
@@ -3831,21 +3874,6 @@ section {
         /* Sección de Contacto */
 .contact-section {
     padding: 80px 20px;
-    background: rgba(99, 102, 241, 0.1) !important;
-    border: 1px solid rgba(99, 102, 241, 0.3) !important;
-    border-radius: 12px !important;
-    padding: 8px 10px !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 6px;
-    overflow: hidden !important;
-    transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
-.contact-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
 }
 
 .contact-title {

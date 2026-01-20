@@ -156,21 +156,24 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
             ease: 'power2.out'
         }, '-=0.3');
 
-        // Animaciones de scroll para cada sección
-        gsap.utils.toArray('section').forEach(section => {
-            gsap.from(section, {
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none reverse'
-                },
-                y: 50,
-                opacity: 0,
-                duration: 1,
-                ease: 'power2.out'
-            });
+// Animaciones de scroll para cada sección (excluyendo contacto)
+gsap.utils.toArray('section').forEach(section => {
+    // Excluir la sección de contacto
+    if (section.id !== 'contact-section') {
+        gsap.from(section, {
+            scrollTrigger: {
+                trigger: section,
+                start: 'top 80%',
+                end: 'bottom 20%',
+                toggleActions: 'play none none reverse'
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            ease: 'power2.out'
         });
+    }
+});
 
 
 
